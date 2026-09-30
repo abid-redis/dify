@@ -31,6 +31,7 @@ VDB_SERVICE_PROFILES = {
     "chroma": "chroma",
     "elasticsearch": "elasticsearch",
     "oceanbase": "oceanbase",
+    "redis_vector": "redis",
 }
 
 

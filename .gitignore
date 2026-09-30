@@ -177,6 +177,7 @@ docker/volumes/app/storage/*
 docker/volumes/certbot/*
 docker/volumes/db/data/*
 docker/volumes/redis/data/*
+docker/volumes/redis_vector/data/*
 docker/volumes/weaviate/*
 docker/volumes/qdrant/*
 docker/tidb/volumes/*

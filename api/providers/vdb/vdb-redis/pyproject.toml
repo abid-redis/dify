@@ -1,0 +1,12 @@
+[project]
+name = "dify-vdb-redis"
+version = "0.0.1"
+
+dependencies = []
+description = "Dify vector store backend (dify-vdb-redis)."
+
+[project.entry-points."dify.vector_backends"]
+redis = "dify_vdb_redis.redis_vector:RedisVectorFactory"
+
+[tool.setuptools.packages.find]
+where = ["src"]

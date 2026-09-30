@@ -17,6 +17,8 @@ x-shared-api-worker-config: &shared-api-worker-config
       required: false
     - path: ./envs/vectorstores/qdrant.env
       required: false
+    - path: ./envs/vectorstores/redis.env
+      required: false
     - path: ./envs/vectorstores/oceanbase.env
       required: false
     - path: ./envs/vectorstores/seekdb.env
@@ -83,6 +85,8 @@ x-shared-worker-config: &shared-worker-config
       required: false
     - path: ./envs/vectorstores/qdrant.env
       required: false
+    - path: ./envs/vectorstores/redis.env
+      required: false
     - path: ./envs/vectorstores/oceanbase.env
       required: false
     - path: ./envs/vectorstores/seekdb.env
@@ -148,6 +152,8 @@ x-shared-worker-beat-config: &shared-worker-beat-config
     - path: ./envs/vectorstores/weaviate.env
       required: false
     - path: ./envs/vectorstores/qdrant.env
+      required: false
+    - path: ./envs/vectorstores/redis.env
       required: false
     - path: ./envs/vectorstores/oceanbase.env
       required: false
@@ -940,6 +946,23 @@ services:
       retries: 10
       start_period: 30s
       timeout: 10s
+
+  # Redis 8 (includes Redis search), used when VECTOR_STORE=redis.
+  redis_vector:
+    image: redis:8
+    profiles:
+      - redis
+    restart: always
+    environment:
+      REDISCLI_AUTH: ${REDIS_VECTOR_PASSWORD:-difyai123456}
+    volumes:
+      - ./volumes/redis_vector/data:/data
+    command: redis-server --requirepass ${REDIS_VECTOR_PASSWORD:-difyai123456}
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
 
   # The pgvector vector database.
   pgvector:

@@ -127,6 +127,7 @@ def test_gen_index_struct_dict(vector_factory_module):
         ("CLICKZETTA", "dify_vdb_clickzetta.clickzetta_vector", "ClickzettaVectorFactory"),
         ("IRIS", "dify_vdb_iris.iris_vector", "IrisVectorFactory"),
         ("HOLOGRES", "dify_vdb_hologres.hologres_vector", "HologresVectorFactory"),
+        ("REDIS", "dify_vdb_redis.redis_vector", "RedisVectorFactory"),
     ],
 )
 def test_get_vector_factory_supported(

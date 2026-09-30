@@ -63,6 +63,6 @@ jobs:
         run: |
           uv run --project api pytest \
             --start-vdb \
-            --vdb-services "weaviate,qdrant,couchbase-server,etcd,minio,milvus-standalone,pgvecto-rs,pgvector,chroma,elasticsearch,oceanbase" \
+            --vdb-services "weaviate,qdrant,couchbase-server,etcd,minio,milvus-standalone,pgvecto-rs,pgvector,chroma,elasticsearch,oceanbase,redis_vector" \
             --timeout "${PYTEST_TIMEOUT:-180}" \
             api/providers/vdb/*/tests/integration_tests

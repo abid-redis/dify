@@ -41,6 +41,7 @@ from .vdb.oracle_config import OracleConfig
 from .vdb.pgvector_config import PGVectorConfig
 from .vdb.pgvectors_config import PGVectoRSConfig
 from .vdb.qdrant_config import QdrantConfig
+from .vdb.redis_vector_config import RedisVectorConfig
 from .vdb.relyt_config import RelytConfig
 from .vdb.tablestore_config import TableStoreConfig
 from .vdb.tencent_vector_config import TencentVectorDBConfig
@@ -394,6 +395,7 @@ class MiddlewareConfig(
     VastbaseVectorConfig,
     PGVectoRSConfig,
     QdrantConfig,
+    RedisVectorConfig,
     RelytConfig,
     TencentVectorDBConfig,
     TiDBVectorConfig,

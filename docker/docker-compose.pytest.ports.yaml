@@ -12,6 +12,10 @@ services:
     ports:
       - "${EXPOSE_PGVECTOR_PORT:-5433}:5432"
 
+  redis_vector:
+    ports:
+      - "${EXPOSE_REDIS_VECTOR_PORT:-6381}:6379"
+
   pgvecto-rs:
     ports:
       - "${EXPOSE_PGVECTO_RS_PORT:-5431}:5432"
